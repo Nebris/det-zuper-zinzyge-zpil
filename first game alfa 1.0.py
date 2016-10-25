@@ -45,7 +45,7 @@ hundredMeterForestUberBoss=("winnie the poo")
 mcDonaldsPlaygroundMonsters=("cheese burger","fat bitch","mother of seven","hipster zombie","sagarin","nerd","rich kid","dj mcmuffin","mclovin")
 mcDonaldsPlaygroundBosses=("the dude","biff tannen","donald trump")
 mdDonaldsPlaygroundUberBoss=("the burger king")
-#movement
+#movement lader en flytte sig rundt i et 20x20 grid ved at spørge hvor man vil rykke hen og så ændrer x og y hvis man stadig er inde for mapped
 def moveandcheck():
     global x
     global y
@@ -87,7 +87,7 @@ def moveandcheck():
                 print "you can't go there"
         else:
             print "that is not an option"
-#monster roll
+#monster roll bestemmer monster ud fra level og world og definerer monster stats derudfra
 def rollMonster():
     global level
     global world
@@ -120,7 +120,7 @@ def rollMonster():
                 monsterMinAttack=monsterLevel
                 monsterMaxAttack=monsterLevel+2
                 print ("you met "+str(monster)+" it is level "+str(monsterLevel)+" and it has "+str(monsterHealth)+" health")
-#heroattack
+#heroattack fungerer ved at spørge hvordan man vil udregne og så regne monsterets liv ud derefter
 def heroAttack():
     global monsterHealth
     global monster
