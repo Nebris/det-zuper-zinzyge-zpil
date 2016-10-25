@@ -1,4 +1,5 @@
 print ("Hi and Welcome to my game!")
+print "Hej Asger"
 import random
 from random import randint
 #hero stats
