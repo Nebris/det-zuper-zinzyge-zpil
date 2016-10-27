@@ -55,8 +55,8 @@ mcDonaldsPlaygroundMonsters = ("cheese burger","fat bitch","mother of seven","hi
 mcDonaldsPlaygroundBosses   = ("the dude","biff tannen","donald trump")
 mdDonaldsPlaygroundUberBoss = ("the burger king")
 
-#Movement lader en flytte sig rundt i et 20x20 grid ved at spørge hvor man vil
-# rykke hen og så ændrer x og y hvis man stadig er inde for mapped
+#Movement lader en flytte sig rundt i et 20x20 grid ved at spoerge hvor man vil
+# rykke hen og saa aendrer x og y hvis man stadig er inde for mapped
 def moveandcheck():
     global x
     global y
@@ -133,7 +133,7 @@ def rollMonster():
                 monsterMaxAttack=monsterLevel+2
                 print ("you met "+str(monster)+" it is level "+str(monsterLevel)+" and it has "+str(monsterHealth)+" health")
 
-#Heroattack fungerer ved at spørge hvordan man vil udregne og så regne monsterets liv ud derefter
+#Heroattack fungerer ved at spoerge hvordan man vil udregne og saa regne monsterets liv ud derefter
 def heroAttack():
     global monsterHealth
     global monster
