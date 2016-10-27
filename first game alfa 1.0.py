@@ -37,7 +37,7 @@ def levelCal():
         health=20+(level*10)
         print "you leveled up!"
 
-#world and monster list
+#World and monster list
 worlds                      = ("ice-land", "mars", "underwater-world", "100 meter forest", "McDonald's playground")
 iceLandMonsters             = ("a yeti", "a frost-giant", "a wampa", "the sirius patrol","a snow wolf","a snow giant", "a evil snowman", "a angry snow rabit", "avalance")
 iceLandBosses               = ("a ice dragon", "a evil snowqueen", "putin")
@@ -57,7 +57,6 @@ mdDonaldsPlaygroundUberBoss = ("the burger king")
 
 #Movement lader en flytte sig rundt i et 20x20 grid ved at spørge hvor man vil
 # rykke hen og så ændrer x og y hvis man stadig er inde for mapped
-
 def moveandcheck():
     global x
     global y
