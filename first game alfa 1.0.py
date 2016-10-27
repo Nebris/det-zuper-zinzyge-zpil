@@ -1,22 +1,30 @@
+#Det Zuper Zinzyge Zpil
+#Textbased RPG
+#GUI Underway
 print ("Hi and Welcome to my game!")
-print "Hej Asger"
 import random
 from random import randint
-#hero stats
-level=1
-damage=1+level
-minAttack=1
-maxAttack=2
-health=20+(level*10)
-experience=0
-experienceReq=(level*100)
-x=10
-y=10
-heroPos=(x,y)
-weakAttackMul=1
-mediumAttackMul=2
-strongAttackMul=3
+
+#Hero startstats
+level           = 1
+damage          = 1+level
+minAttack       = 1
+maxAttack       = 2
+health          = 20+(level*10)
+experience      = 0
+experienceReq   = (level*100)
+x               = 10
+y               = 10
+heroPos         = (x,y)
+weakAttackMul   = 1
+mediumAttackMul = 2
+strongAttackMul = 3
+
 def levelCal():
+    '''
+    Updates the xp of the character
+    Also updates the stats of the character depending on the level
+    '''
     global experience
     global level
     experienceGained=experience+(level*(randint(30,40)))
@@ -28,32 +36,36 @@ def levelCal():
         damage=1+level
         health=20+(level*10)
         print "you leveled up!"
+
 #world and monster list
-worlds=("ice-land", "mars", "underwater-world", "100 meter forest", "McDonald's playground")
-iceLandMonsters=("a yeti", "a frost-giant", "a wampa", "the sirius patrol","a snow wolf","a snow giant", "a evil snowman", "a angry snow rabit", "avalance")
-iceLandBosses=("a ice dragon", "a evil snowqueen", "putin")
-iceLandUberBoss=("Santa Klaus")
-marsMonsters=("mars-rover","meteor","alien","predetor","darude","zombie astronaut","exogorth","the silver surfer","parademon","baron of hell")
-marsBosses=("dark martian manhunter","jabba the hut","olifant")
-marsUberBoss=("evil mars bar")
-underWaterWorldMonsters=("shark","bikini bitch","steel-eel","mermaid","squirtle","sebastian","commander Rourge","goldfish","cursed pirate")
-underWaterWorldBosses=("ariel","spongebob squarepants","davy jones")
-underWaterWorldUberBoss=("Neptune")
-hundredMeterForestMonsters=("ent","ewok","harambe","clayton","giant ant","quicksand","a gryll bear","ogre","troll")
-hundredMeterForestBosses=("aragog","bulbasaur","shrek")
-hundredMeterForestUberBoss=("winnie the poo")
-mcDonaldsPlaygroundMonsters=("cheese burger","fat bitch","mother of seven","hipster zombie","sagarin","nerd","rich kid","dj mcmuffin","mclovin")
-mcDonaldsPlaygroundBosses=("the dude","biff tannen","donald trump")
-mdDonaldsPlaygroundUberBoss=("the burger king")
-#movement lader en flytte sig rundt i et 20x20 grid ved at spørge hvor man vil rykke hen og så ændrer x og y hvis man stadig er inde for mapped
+worlds                      = ("ice-land", "mars", "underwater-world", "100 meter forest", "McDonald's playground")
+iceLandMonsters             = ("a yeti", "a frost-giant", "a wampa", "the sirius patrol","a snow wolf","a snow giant", "a evil snowman", "a angry snow rabit", "avalance")
+iceLandBosses               = ("a ice dragon", "a evil snowqueen", "putin")
+iceLandUberBoss             = ("Santa Klaus")
+marsMonsters                = ("mars-rover","meteor","alien","predetor","darude","zombie astronaut","exogorth","the silver surfer","parademon","baron of hell")
+marsBosses                  = ("dark martian manhunter","jabba the hut","olifant")
+marsUberBoss                = ("evil mars bar")
+underWaterWorldMonsters     = ("shark","bikini bitch","steel-eel","mermaid","squirtle","sebastian","commander Rourge","goldfish","cursed pirate")
+underWaterWorldBosses       = ("ariel","spongebob squarepants","davy jones")
+underWaterWorldUberBoss     = ("Neptune")
+hundredMeterForestMonsters  = ("ent","ewok","harambe","clayton","giant ant","quicksand","a gryll bear","ogre","troll")
+hundredMeterForestBosses    = ("aragog","bulbasaur","shrek")
+hundredMeterForestUberBoss  = ("winnie the poo")
+mcDonaldsPlaygroundMonsters = ("cheese burger","fat bitch","mother of seven","hipster zombie","sagarin","nerd","rich kid","dj mcmuffin","mclovin")
+mcDonaldsPlaygroundBosses   = ("the dude","biff tannen","donald trump")
+mdDonaldsPlaygroundUberBoss = ("the burger king")
+
+#Movement lader en flytte sig rundt i et 20x20 grid ved at spørge hvor man vil
+# rykke hen og så ændrer x og y hvis man stadig er inde for mapped
+
 def moveandcheck():
     global x
     global y
     global heroPos
     while True:
-        print ("you are currently at "+str(heroPos))
-        move=raw_input("where do you want to go from here?(up,down,right,left)")
-        if move=="up":
+        print ("You are currently at "+str(heroPos))
+        move=raw_input("Where do you want to go from here?(up,down,right,left)")
+        if move=="up" or "UP" or "Up":
             if y<10:
                 y+=1
                 heroPos=(x,y)
@@ -61,7 +73,7 @@ def moveandcheck():
                 break
             else:
                 print "you can't go there"
-        elif move=="down":
+        elif move=="down" or "Down" or "DOWN":
             if y>(-10):
                 y-=1
                 heroPos=(x,y)
@@ -69,7 +81,7 @@ def moveandcheck():
                 break
             else:
                 print "you can't go there"
-        elif move=="right":
+        elif move=="right" or "Right" or "RIGHT":
             if x<10:
                 x+=1
                 heroPos=(x,y)
@@ -77,7 +89,7 @@ def moveandcheck():
                 break
             else:
                 print "you can't go there"
-        elif move=="left":
+        elif move=="left" or "Left" or "LEFT":
             if x>(-10):
                 x-=1
                 heroPos=(x,y)
@@ -87,7 +99,8 @@ def moveandcheck():
                 print "you can't go there"
         else:
             print "that is not an option"
-#monster roll bestemmer monster ud fra level og world og definerer monster stats derudfra
+
+#Monster roll bestemmer monster ud fra level og world og definerer monster stats derudfra
 def rollMonster():
     global level
     global world
@@ -120,7 +133,8 @@ def rollMonster():
                 monsterMinAttack=monsterLevel
                 monsterMaxAttack=monsterLevel+2
                 print ("you met "+str(monster)+" it is level "+str(monsterLevel)+" and it has "+str(monsterHealth)+" health")
-#heroattack fungerer ved at spørge hvordan man vil udregne og så regne monsterets liv ud derefter
+
+#Heroattack fungerer ved at spørge hvordan man vil udregne og så regne monsterets liv ud derefter
 def heroAttack():
     global monsterHealth
     global monster
@@ -168,8 +182,3 @@ def heroAttack():
         else:
             print "you can't do that"
 #print (str(level)+" level "+str(experience)+" experience")
-
-    
-
-        
-    
