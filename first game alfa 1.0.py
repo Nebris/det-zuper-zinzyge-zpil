@@ -20,6 +20,7 @@ heroPos         = (x,y)
 weakAttackMul   = 1
 mediumAttackMul = 2
 strongAttackMul = 3
+world           = None
 
 def levelCal():
     '''
@@ -54,7 +55,7 @@ hundredMeterForestBosses    = ("aragog","bulbasaur","shrek")
 hundredMeterForestUberBoss  = ("winnie the poo")
 mcDonaldsPlaygroundMonsters = ("cheese burger","fat bitch","mother of seven","hipster zombie","sagarin","nerd","rich kid","dj mcmuffin","mclovin")
 mcDonaldsPlaygroundBosses   = ("the dude","biff tannen","donald trump")
-mdDonaldsPlaygroundUberBoss = ("the burger king")
+mcDonaldsPlaygroundUberBoss = ("the burger king")
 
 #Movement lader en flytte sig rundt i et 20x20 grid ved at spoerge hvor man vil
 # rykke hen og saa aendrer x og y hvis man stadig er inde for mapped
@@ -106,35 +107,57 @@ def rollMonster():
     global world
     global iceLandMonsters
     global iceLandBosses
+    global marsMonsters
+    global marsBosses
+    global underWaterWorldMonsters
+    global underWaterWorldBosses
+    global hundredMeterForestMonsters
+    global hundredMeterForestBosses
+    global mcDonaldsPlaygroundMonsters
+    global mcDonaldsPlaygroundBosses
     if world=="ice-land":
-        if level<10:
-            monster=random.choice(iceLandMonsters)
-            if level<3:
-                monsterLevel=level
-            else:
-                monsterLevel=randint(level-2,level+2)
+        monsterClass=iceLandMonsters
+        bossClass=iceLandBosses
+    if world=="mars"
+        monsterClass=marsMonsters
+        bossClass=marsBosses
+    if world=="underwater-world"
+        monsterClass=underWaterWorldMonsters
+        bossClass=underWaterWorldBosses
+    if world=="100 meter forest"
+        monsterClass=hundredMeterForestMonsters
+        bossClass=hundredMeterForestBosses
+    if world=="McDonald's playground"
+        monsterClass=mcDonaldsPlaygroundMonsters
+        bossClass=mcDonaldsPlaygroundBosses
+    if level<10:
+        monster=random.choice(monsterClass)
+        if level<3:
+            monsterLevel=level
+        else:
+            monsterLevel=randint(level-2,level+2)
+        monsterHealth=randint(15+(10*monsterLevel),30+(10*monsterLevel))
+        monsterMinAttack=monsterLevel
+        monsterMaxAttack=monsterLevel+2
+        print ("you met "+str(monster)+" it is level "+str(monsterLevel)+" and it has "+str(monsterHealth)+" health")
+    else:
+        bossRoll=randint(1,10)
+        if bossRoll==1:
+            monster=random.choice(bossClass)
+            monsterLevel=15
+            monsterHealth=200
+            monsterMinAttack=20
+            monsterMaxAttack=30
+            print ("you met "+str(monster)+" it is level "+str(monsterLevel)+" and it has "+str(monsterHealth)+" health")
+        else:
+            monster=random.choice(monsterClass)
+            monsterLevel=randint(level-2,level+2)
             monsterHealth=randint(15+(10*monsterLevel),30+(10*monsterLevel))
             monsterMinAttack=monsterLevel
             monsterMaxAttack=monsterLevel+2
             print ("you met "+str(monster)+" it is level "+str(monsterLevel)+" and it has "+str(monsterHealth)+" health")
-        else:
-            bossRoll=randint(1,10)
-            if bossRoll==1:
-                monster=random.choice(iceLandBosses)
-                monsterLevel=15
-                monsterHealth=200
-                monsterMinAttack=20
-                monsterMaxAttack=30
-                print ("you met "+str(monster)+" it is level "+str(monsterLevel)+" and it has "+str(monsterHealth)+" health")
-            else:
-                monster=random.choice(iceLandMonsters)
-                monsterLevel=randint(level-2,level+2)
-                monsterHealth=randint(15+(10*monsterLevel),30+(10*monsterLevel))
-                monsterMinAttack=monsterLevel
-                monsterMaxAttack=monsterLevel+2
-                print ("you met "+str(monster)+" it is level "+str(monsterLevel)+" and it has "+str(monsterHealth)+" health")
 
-#Heroattack fungerer ved at spoerge hvordan man vil udregne og saa regne monsterets liv ud derefter
+#Heroattack attacks once with weak medium or strong and changes global variable: monsterHealth
 def heroAttack():
     global monsterHealth
     global monster

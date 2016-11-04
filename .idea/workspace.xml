@@ -26,10 +26,13 @@
       <file leaf-file-name="first game alfa 1.0.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/first game alfa 1.0.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="152" column="25" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="25" />
+            <state relative-caret-position="-168">
+              <caret line="104" column="18" selection-start-line="104" selection-start-column="18" selection-end-line="104" selection-end-column="18" />
               <folding>
                 <element signature="e#90#103#0" expanded="true" />
+                <element signature="e#519#1015#0" expanded="false" />
+                <element signature="e#2676#3953#0" expanded="false" />
+                <element signature="e#6278#8127#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -301,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477578472917</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="opdateret forklaringer #">
+      <created>1478262610386</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1478262610386</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -354,6 +364,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#90#103#0" expanded="true" />
+            <element signature="e#519#1015#0" expanded="false" />
+            <element signature="e#2676#3953#0" expanded="false" />
+            <element signature="e#6278#8127#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -368,10 +381,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/first game alfa 1.0.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="152" column="25" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="25" />
+        <state relative-caret-position="-168">
+          <caret line="104" column="18" selection-start-line="104" selection-start-column="18" selection-end-line="104" selection-end-column="18" />
           <folding>
             <element signature="e#90#103#0" expanded="true" />
+            <element signature="e#519#1015#0" expanded="false" />
+            <element signature="e#2676#3953#0" expanded="false" />
+            <element signature="e#6278#8127#0" expanded="false" />
           </folding>
         </state>
       </provider>
