@@ -10,6 +10,7 @@ level           = 1
 damage          = 1+level
 minAttack       = 1
 maxAttack       = 2
+maxHealth       = 20+(level*10)
 health          = 20+(level*10)
 experience      = 0
 experienceReq   = (level*100)
@@ -140,44 +141,40 @@ def heroAttack():
     global minAttack
     global maxAttack
     while True:
-        action=raw_input("do you want to attack, use a spell or try to flee?(attack,spell,flee)")
-        if action=="attack":
-            weakAttack=randint(90,100)
-            mediumAttack=randint(40,60)
-            strongAttack=randint(23,43)
-            attackRoll=randint(1,100)
-            while True:
-                attackStrength=raw_input("which attack do you want to use? weak("+str(weakAttack)+"% chance)or medium("+str(mediumAttack)+"% chance) or strong("+str(strongAttack)+"% chance)?(weak,medium,strong)")
-                if attackStrength=="weak":
-                    if attackRoll>weakAttack:
-                        print "you miss(happens to even the best of us)"
-                        break
-                    else:
-                        dmgCal=randint(minAttack*weakAttackMul,maxAttack*weakAttackMul)
-                        monsterHealth-=dmgCal
-                        print ("you deal "+str(dmgCal)+" damage to "+str(monster))
-                        break
-                if attackStrength=="medium":
-                    if attackRoll>mediumAttack:
-                        print "you miss(happens to even the best of us)"
-                        break
-                    else:
-                        dmgCal=randint(minAttack*mediumAttackMul,maxAttack*mediumAttackMul)
-                        monsterHealth-=dmgCal
-                        print ("you deal "+str(dmgCal)+" damage to "+str(monster))
-                        break
-                if attackStrength=="strong":
-                    if attackRoll>strongAttack:
-                        print "you miss(happens to even the best of us)"
-                        break
-                    else:
-                        dmgCal=randint(minAttack*strongAttackMul,maxAttack*strongAttackMul)
-                        monsterHealth-=dmgCal
-                        print ("you deal "+str(dmgCal)+" damage to "+str(monster))
-                        break
+        weakAttack=randint(90,100)
+        mediumAttack=randint(40,60)
+        strongAttack=randint(23,43)
+        attackRoll=randint(1,100)
+        while True:
+            attackStrength=raw_input("which attack do you want to use? weak("+str(weakAttack)+"% chance)or medium("+str(mediumAttack)+"% chance) or strong("+str(strongAttack)+"% chance)?(weak,medium,strong)")
+            if attackStrength=="weak":
+                if attackRoll>weakAttack:
+                    print "you miss(happens to even the best of us)"
+                    break
                 else:
-                    print "that is not an attack"
-            break
-        else:
-            print "you can't do that"
+                    dmgCal=randint(minAttack*weakAttackMul,maxAttack*weakAttackMul)
+                    monsterHealth-=dmgCal
+                    print ("you deal "+str(dmgCal)+" damage to "+str(monster))
+                    break
+            if attackStrength=="medium":
+                if attackRoll>mediumAttack:
+                    print "you miss(happens to even the best of us)"
+                    break
+                else:
+                    dmgCal=randint(minAttack*mediumAttackMul,maxAttack*mediumAttackMul)
+                    monsterHealth-=dmgCal
+                    print ("you deal "+str(dmgCal)+" damage to "+str(monster))
+                    break
+            if attackStrength=="strong":
+                if attackRoll>strongAttack:
+                    print "you miss(happens to even the best of us)"
+                    break
+                else:
+                    dmgCal=randint(minAttack*strongAttackMul,maxAttack*strongAttackMul)
+                    monsterHealth-=dmgCal
+                    print ("you deal "+str(dmgCal)+" damage to "+str(monster))
+                    break
+            else:
+                print "that is not an attack"
+        break
 #print (str(level)+" level "+str(experience)+" experience")
