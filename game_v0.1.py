@@ -3,7 +3,8 @@
 #GUI Underway
 #
 #TODO:
-# Add inventory methods
+# Add inventory function
+# Add main funtion
 
 print ("Hi and Welcome to my game!")
 import random
@@ -44,6 +45,21 @@ mcDonaldsPlaygroundMonsters = ("cheese burger","fat bitch","mother of seven","hi
 mcDonaldsPlaygroundBosses   = ("the dude","biff tannen","donald trump")
 mcDonaldsPlaygroundUberBoss = ("the burger king")
 
+# Inventory list and stats
+# List of stats as follows:
+# Attack, defence,
+# List of inventory as follows:
+# Weapon, shoe, hat, pants, shirt, shield
+basicSword      =(1,0)
+basicShoe       =(0,1)
+basicHat        =(1,1)
+basicPants      =(0,1)
+basicShirt      =(0,1)
+basicShield     =(0,1)
+heroInventory   =(basicSword,basicShoe,basicHat,basicPants,basicShirt,none)
+inventoryUsed   =(basicSword,basicShoe,basicHat,basicPants,basicShirt,none)
+
+
 def levelCal():
     '''
     Updates the xp of the character
@@ -53,13 +69,13 @@ def levelCal():
     global level
     experienceGained=experience+(level*(randint(30,40)))
     experience=experience+experienceGained
-    print ("you gained "+str(experienceGained)+" experience")
+    print ("You gained "+str(experienceGained)+" experience")
     if experience>=experienceReq:
         experience=experience-experienceReq
         level+=1
         damage=1+level
         health=20+(level*10)
-        print "you leveled up!"
+        print "You leveled up!"
 
 def moveandcheck():
     '''
@@ -124,6 +140,7 @@ def rollMonster():
     global hundredMeterForestBosses
     global mcDonaldsPlaygroundMonsters
     global mcDonaldsPlaygroundBosses
+    #TODO: This part should be done using a list of lists in the world variables
     if world=="ice-land":
         monsterClass=iceLandMonsters
         bossClass=iceLandBosses
@@ -180,7 +197,7 @@ def heroAttack():
         mediumAttack=randint(40,60)
         strongAttack=randint(23,43)
         attackRoll=randint(1,100)
-        while True:
+        while monsterHealth > 0:
             attackStrength=raw_input("which attack do you want to use? weak("+str(weakAttack)+"% chance)or medium("+str(mediumAttack)+"% chance) or strong("+str(strongAttack)+"% chance)?(weak,medium,strong)")
             if attackStrength=="weak":
                 if attackRoll>weakAttack:
@@ -213,3 +230,37 @@ def heroAttack():
                 print "that is not an attack"
         break
 #print (str(level)+" level "+str(experience)+" experience")
+
+def inventoryIndex():
+    '''
+    Shows which inventory items is currently being used, and which is in storage
+    '''
+    print "You currently have the following items in your possesion:"
+    for item in heroInventory:
+        print heroInventory(item)
+    print "and you have the following on:"
+    for item in inventoryUsed:
+        print inventoryUsed(item)
+
+def newItem(item):
+    '''
+    The process of adding an item to storage
+    '''
+    heroInventory+=item
+
+def changeClothes():
+    '''
+    The act of putting clothes on or taking clothes off
+    '''
+    on_off=raw_input("What do you want to put on or off?")
+    #Check wether the item is on or off and determine if the item should be put on or off depending on the outcome
+    if on_off in inventoryUsed:
+        print "taking off"+on_off
+        inventoryUsed[on_off]=none
+        heroInventory
+    elif on_off in heroInventory:
+        print "putting on"+on_off
+        heroInventory.remove(on_off)
+        inventoryUsed.append(on_off)
+    else:
+        print "The item does not exist in either your inventory or on you"
