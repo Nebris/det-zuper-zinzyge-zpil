@@ -57,9 +57,11 @@ mcDonaldsPlaygroundMonsters = ("cheese burger","fat bitch","mother of seven","hi
 mcDonaldsPlaygroundBosses   = ("the dude","biff tannen","donald trump")
 mcDonaldsPlaygroundUberBoss = ("the burger king")
 
-#Movement lader en flytte sig rundt i et 20x20 grid ved at spoerge hvor man vil
-# rykke hen og saa aendrer x og y hvis man stadig er inde for mapped
 def moveandcheck():
+    '''
+    Movement lader en flytte sig rundt i et 20x20 grid ved at spoerge hvor man
+    man rykke hen og aendrer x og y hvis man stadig er inde for mapped
+    '''
     global x
     global y
     global heroPos
@@ -101,8 +103,11 @@ def moveandcheck():
         else:
             print "that is not an option"
 
-#Monster roll bestemmer monster ud fra level og world og definerer monster stats derudfra
 def rollMonster():
+    '''
+    Monster roll bestemmer monster ud fra level
+    og world og definerer monster stats derudfra
+    '''
     global level
     global world
     global iceLandMonsters
@@ -157,8 +162,11 @@ def rollMonster():
             monsterMaxAttack=monsterLevel+2
             print ("you met "+str(monster)+" it is level "+str(monsterLevel)+" and it has "+str(monsterHealth)+" health")
 
-#Heroattack attacks once with weak medium or strong and changes global variable: monsterHealth
 def heroAttack():
+    '''
+    Heroattack attacks once with weak medium or strong and
+    changes global variable: monsterHealth
+    '''
     global monsterHealth
     global monster
     global minAttack
