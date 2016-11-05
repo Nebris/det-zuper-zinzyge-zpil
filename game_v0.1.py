@@ -1,6 +1,10 @@
 #Det Zuper Zinzyge Zpil
 #Textbased RPG
 #GUI Underway
+#
+#TODO:
+# Add inventory methods
+
 print ("Hi and Welcome to my game!")
 import random
 from random import randint
@@ -22,23 +26,6 @@ mediumAttackMul = 2
 strongAttackMul = 3
 world           = None
 
-def levelCal():
-    '''
-    Updates the xp of the character
-    Also updates the stats of the character depending on the level
-    '''
-    global experience
-    global level
-    experienceGained=experience+(level*(randint(30,40)))
-    experience=experience+experienceGained
-    print ("you gained "+str(experienceGained)+" experience")
-    if experience>=experienceReq:
-        experience=experience-experienceReq
-        level+=1
-        damage=1+level
-        health=20+(level*10)
-        print "you leveled up!"
-
 #World and monster list
 worlds                      = ("ice-land", "mars", "underwater-world", "100 meter forest", "McDonald's playground")
 iceLandMonsters             = ("a yeti", "a frost-giant", "a wampa", "the sirius patrol","a snow wolf","a snow giant", "a evil snowman", "a angry snow rabit", "avalance")
@@ -56,6 +43,23 @@ hundredMeterForestUberBoss  = ("winnie the poo")
 mcDonaldsPlaygroundMonsters = ("cheese burger","fat bitch","mother of seven","hipster zombie","sagarin","nerd","rich kid","dj mcmuffin","mclovin")
 mcDonaldsPlaygroundBosses   = ("the dude","biff tannen","donald trump")
 mcDonaldsPlaygroundUberBoss = ("the burger king")
+
+def levelCal():
+    '''
+    Updates the xp of the character
+    Also updates the stats of the character depending on the level
+    '''
+    global experience
+    global level
+    experienceGained=experience+(level*(randint(30,40)))
+    experience=experience+experienceGained
+    print ("you gained "+str(experienceGained)+" experience")
+    if experience>=experienceReq:
+        experience=experience-experienceReq
+        level+=1
+        damage=1+level
+        health=20+(level*10)
+        print "you leveled up!"
 
 def moveandcheck():
     '''
